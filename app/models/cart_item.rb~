@@ -2,7 +2,7 @@ class CartItem < ActiveRecord::Base
 belongs_to :cart, class_name: 'Cart', foreign_key: 'cart_id'
 belongs_to :item
 before_validation :load_defaults
-
+validate
 	def load_defaults
 		if self.new_record?
 			self.price = 0
@@ -21,9 +21,7 @@ Item.all.each do |itemz|
 			errors.add(:quantity, "not enough stock")
 		else
 			rem = itemz.stock - self.quantity
-if self.cart.status == "paid"
 			self.item.update(:stock => rem)
-end
 			self.price = self.quantity * itemz.price
 		end
 	end

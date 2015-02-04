@@ -5,16 +5,14 @@
   <%= @item.name %>
 </p>
 
-
+<p>
+  <strong>Stock:</strong>
+  <%= @item.stock %>
+</p>
 
 <p>
   <strong>Price:</strong>
   <%= @item.price %>
-</p>
-
-<p>
-  <strong>Stock:</strong>
-  <%= @item.stock %>
 </p>
 
 
